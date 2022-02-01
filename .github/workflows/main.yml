@@ -17,7 +17,7 @@ jobs:
         
         - uses: azure/docker-login@v1
           with:
-            login-server: contoso.azurecr.io
+            login-server: getting-started-k8s.Docker.io
             username: ${{ secrets.REGISTRY_USERNAME }}
             password: ${{ secrets.REGISTRY_PASSWORD }}
         - run: |
@@ -27,7 +27,7 @@ jobs:
         - name: 'Deploy to Azure Container Instances'
           uses: 'azure/aci-deploy@v1'
           with:
-            resource-group: contoso
+            resource-group: test-aci
             dns-name-label: url-for-container
             image: contoso.azurecr.io/nodejssampleapp:${{ github.sha }}
             cpu: 1   #Optional
@@ -35,4 +35,4 @@ jobs:
             registry-username: ${{ secrets.REGISTRY_USERNAME }}
             registry-password: ${{ secrets.REGISTRY_PASSWORD }}
             name: contoso-container
-            location: 'west us'
+            location: 'east us'
