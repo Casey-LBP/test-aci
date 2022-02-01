@@ -18,8 +18,8 @@ jobs:
         - name: Login to Docker Hub
           uses: docker/login-action@v1
           with:
-            username: ${{ secrets.DOCKERHUB_USERNAME }}
-            password: ${{ secrets.DOCKERHUB_TOKEN }}
+            username: ${{ secrets.REGISTRY_USERNAME }}
+            password: ${{ secrets.REGISTRY_PASSWORD }}
         #- run: |
          #   docker build . -t getting-started-k8s.Docker.io/getting-started-k8s:${{ github.sha }}
           #  docker push contoso.azurecr.io/nodejssampleapp:${{ github.sha }}
